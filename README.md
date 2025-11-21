@@ -48,10 +48,7 @@ RDS Export Task
 ### Configuration
 - **`cdk.json`** - Environment-specific settings including:
   - **Dev environment**: Empty database list (branch: `develop`)
-  - **Prod environment**: 3 databases configured (branch: `main`):
-    - `pams-stack-prod` → exports to `pams-db-snapshots-export`
-    - `maxonevams-stack-prod` → exports to `maxonevams-db-snapshots-export`
-    - `maxonelams-stack-prod` → exports to `maxonelams-db-snapshots-export`
+  - **Prod environment**: 3 databases configured (branch: `main`)
 
 ## AWS Resources Created
 
