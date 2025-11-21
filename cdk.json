@@ -1,0 +1,59 @@
+{
+  "app": "npx ts-node --prefer-ts-exts bin/rds-snapshot-s3exports-cdk.ts",
+  "watch": {
+    "include": ["**"],
+    "exclude": [
+      "README.md",
+      "cdk*.json",
+      "**/*.d.ts",
+      "**/*.js",
+      "tsconfig.json",
+      "package*.json",
+      "yarn.lock",
+      "node_modules",
+      "test"
+    ]
+  },
+  "context": {
+    "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": true,
+    "@aws-cdk/core:stackRelativeExports": true,
+    "@aws-cdk/aws-rds:lowercaseDbIdentifier": true,
+    "@aws-cdk/aws-lambda:recognizeVersionProps": true,
+    "@aws-cdk/aws-cloudfront:defaultSecurityPolicyTLSv1.2_2021": true,
+    "@aws-cdk-containers/ecs-service-extensions:enableDefaultLogDriver": true,
+    "@aws-cdk/aws-ec2:uniqueImdsv2TemplateName": true,
+    "@aws-cdk/aws-iam:minimizePolicies": true,
+    "@aws-cdk/core:target-partitions": ["aws", "aws-cn"],
+    "globals": {
+      "appName": "rds-snapshot-s3exports",
+      "region": "eu-central-1"
+    },
+    "environments": [
+      {
+        "environment": "dev",
+        "branchName": "develop",
+        "accountNumber": "173316240447",
+        "vpc": {
+          "id": "vpc-xxxx",
+          "cidr": ""
+        },
+        "databases": []
+      },
+      {
+        "environment": "prod",
+        "branchName": "main",
+        "accountNumber": "616626909445",
+        "vpc": {
+          "id": "vpc-xxxx",
+          "cidr": ""
+        },
+        "databases": [
+          {
+            "dbName": "",
+            "s3BucketName": ""
+          }
+        ]
+      }
+    ]
+  }
+}
